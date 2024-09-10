@@ -12,7 +12,7 @@ import {
   ChevronRight,
   DollarSign,
 } from "lucide-react";
-import { RadialProgressBar } from "./radial-progress-bar";
+import { RadialProgressBar } from "@/radial-progress-bar.js";
 
 export default function Dashboard() {
   const [balance, setBalance] = useState(1500);
@@ -79,12 +79,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent className="flex flex-col items-center">
               <h3 className="text-xl font-semibold mb-2">Macbook Pro</h3>
-              <RadialProgressBar
-                progress={savingsProgress}
-                size={180}
-                strokeWidth={12}
-                className="mb-4"
-              />
+              <RadialProgressBar progress={75} size={150} strokeWidth={10} />
               <p className="text-sm text-muted-foreground">
                 ${savings.toFixed(2)} / ${savingsGoal.toFixed(2)}
               </p>
