@@ -20,6 +20,9 @@ const KorapayBalance = () => {
           "https://savepal-backend.onrender.com/api/getBalance",
           {
             method: "GET",
+            headers: {
+              Authorization: `Bearer sk_test_BeeWgRn4vycfcAsQuABnEUi8AoePQz8XShVJCqKV`,
+            },
           }
         );
 
@@ -34,6 +37,7 @@ const KorapayBalance = () => {
         console.error("Error fetching balance:", error);
       } finally {
         setLoading(false);
+        console.log(balance);
       }
     };
 
@@ -63,7 +67,7 @@ const KorapayBalance = () => {
             Available Balance
           </h3>
           <p className="text-2xl font-bold text-green-600">
-            {balance?.available || "0.00"}
+            {balance?.data.ngn.available_balance || "0.00"}
           </p>
         </div>
         <div className="bg-yellow-100 p-4 rounded-lg">
@@ -71,7 +75,7 @@ const KorapayBalance = () => {
             Pending Balance
           </h3>
           <p className="text-2xl font-bold text-yellow-600">
-            {balance?.pending || "0.00"}
+            {balance?.data.ngn.pending_balance || "0.00"}
           </p>
         </div>
       </div>
