@@ -67,7 +67,7 @@ const KorapayBalance = () => {
             Available Balance
           </h3>
           <p className="text-2xl font-bold text-green-600">
-            {balance?.data.ngn.available_balance || "0.00"}
+            {balance?.data.NGN.available_balance || "0.00"}
           </p>
         </div>
         <div className="bg-yellow-100 p-4 rounded-lg">
@@ -75,7 +75,7 @@ const KorapayBalance = () => {
             Pending Balance
           </h3>
           <p className="text-2xl font-bold text-yellow-600">
-            {balance?.data.ngn.pending_balance || "0.00"}
+            {balance?.data.NGN.pending_balance || "0.00"}
           </p>
         </div>
       </div>
