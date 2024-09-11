@@ -7,10 +7,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { supabase } from '@/lib/supabaseClient'
 const Joinpage = () => {
+    const router = useRouter();
 
      const GoogleLogin = async response => {
         
-            const {data, error} = await supabase.auth.signInWithOAuth({
+            const {data, session, error} = await supabase.auth.signInWithOAuth({
                 provider: 'google',
                 token: response.credential,
             }); 
@@ -19,7 +20,10 @@ const Joinpage = () => {
             } else {
                 console.log(`Logged in succesfully: ${data}`);
             };
-            
+
+            if (session) {
+                router.push("/dashboard")
+            }
      };
   return (
     <div className='bg-white h-screen'>
