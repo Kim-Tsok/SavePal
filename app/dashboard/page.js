@@ -53,35 +53,37 @@ const KorapayBalance = () => {
   }
 
   return (
-    <div className="container mx-auto p-4">
-      {/* <Card className="w-full max-w-md mx-auto">
+    <>
+      <div className="container mx-auto p-4">
+        {/* <Card className="w-full max-w-md mx-auto">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">
             Korapay Balance
           </CardTitle>
         </CardHeader>
         <CardContent> */}
-      <div className="space-y-4">
-        <div className="bg-green-100 p-4 rounded-lg">
-          <h3 className="text-lg font-semibold text-green-800">
-            Available Balance
-          </h3>
-          <p className="text-2xl font-bold text-green-600">
-            {balance?.data.NGN.available_balance || "0.00"}
-          </p>
+        <div className="space-y-4">
+          <div className="bg-green-100 p-4 rounded-lg">
+            <h3 className="text-lg font-semibold text-green-800">
+              Available Balance
+            </h3>
+            <p className="text-2xl font-bold text-green-600">
+              {balance?.data.NGN.available_balance || "0.00"}
+            </p>
+          </div>
+          <div className="bg-yellow-100 p-4 rounded-lg">
+            <h3 className="text-lg font-semibold text-yellow-800">
+              Pending Balance
+            </h3>
+            <p className="text-2xl font-bold text-yellow-600">
+              {balance?.data.NGN.pending_balance || "0.00"}
+            </p>
+          </div>
         </div>
-        <div className="bg-yellow-100 p-4 rounded-lg">
-          <h3 className="text-lg font-semibold text-yellow-800">
-            Pending Balance
-          </h3>
-          <p className="text-2xl font-bold text-yellow-600">
-            {balance?.data.NGN.pending_balance || "0.00"}
-          </p>
-        </div>
+        {/* </CardContent> */}
+        {/* </Card> */}
       </div>
-      {/* </CardContent> */}
-      {/* </Card> */}
-    </div>
+    </>
   );
 };
 
