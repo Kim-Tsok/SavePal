@@ -18,7 +18,6 @@ const Joinpage = () => {
                 console.error(`Error during Authentiation: ${error.message}`);
             } else {
                 console.log(`Logged in succesfully: ${data}`);
-                Router("/dashboard")
             };
      };
   return (
