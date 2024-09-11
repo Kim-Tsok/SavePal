@@ -9,11 +9,10 @@ import { supabase } from '@/lib/supabaseClient'
 const Joinpage = () => {
     const router = useRouter();
 
-     const GoogleLogin = async response => {
+     const GoogleLogin = async () => {
         
             const {data, session, error} = await supabase.auth.signInWithOAuth({
                 provider: 'google',
-                token: response.credential,
             }); 
             if (error) {
                 console.error(`Error during Authentiation: ${error.message}`);
