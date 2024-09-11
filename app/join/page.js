@@ -4,7 +4,7 @@ import Image from 'next/image'
 import React from 'react'
 import google from './google.png'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabaseClient'
 const Joinpage = () => {
     const router = useRouter();
