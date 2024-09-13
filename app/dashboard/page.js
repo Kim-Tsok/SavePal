@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
@@ -21,11 +21,9 @@ const KorapayBalance = () => {
             method: "GET",
           }
         );
-
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-
         const data = await response.json();
         setBalance(data);
       } catch (error) {
@@ -49,13 +47,13 @@ const KorapayBalance = () => {
 
   return (
     <div className="container mx-auto p-4">
-       <Card className="w-full max-w-md mx-auto">
+      {/* <Card className="w-full max-w-md mx-auto">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">
             Korapay Balance
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent> */}
       <div className="space-y-4">
         <div className="bg-green-100 p-4 rounded-lg">
           <h3 className="text-lg font-semibold text-green-800">
@@ -74,8 +72,8 @@ const KorapayBalance = () => {
           </p>
         </div>
       </div>
-      </CardContent> 
-       </Card>
+      {/* </CardContent>
+      </Card> */}
     </div>
   );
 };
