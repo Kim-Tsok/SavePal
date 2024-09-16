@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Loader from "@/Components/Loader";
 import Error from "@/Components/Error";
-import { supabase } from "@/lib/supabaseClient"; // Import the client
+import { supabase } from "@/lib/supabaseClient";
+// import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 const KorapayBalance = () => {
   const [balance, setBalance] = useState(null);
@@ -29,11 +30,9 @@ const KorapayBalance = () => {
           "https://savepal-backend.onrender.com/api/getBalance",
           { method: "GET" }
         );
-
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-
         const data = await response.json();
         setBalance(data);
 
@@ -64,7 +63,7 @@ const KorapayBalance = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <Card className="w-full max-w-md mx-auto">
+      {/* <Card className="w-full max-w-md mx-auto">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">
             Korapay Balance
@@ -91,6 +90,27 @@ const KorapayBalance = () => {
           </div>
         </CardContent>
       </Card>
+        <CardContent> */}
+      <div className="space-y-4">
+        <div className="bg-green-100 p-4 rounded-lg">
+          <h3 className="text-lg font-semibold text-green-800">
+            Available Balance
+          </h3>
+          <p className="text-2xl font-bold text-green-600">
+            {balance?.available || "0.00"}
+          </p>
+        </div>
+        <div className="bg-yellow-100 p-4 rounded-lg">
+          <h3 className="text-lg font-semibold text-yellow-800">
+            Pending Balance
+          </h3>
+          <p className="text-2xl font-bold text-yellow-600">
+            {balance?.pending || "0.00"}
+          </p>
+        </div>
+      </div>
+      {/* </CardContent>
+      </Card> */}
     </div>
   );
 };

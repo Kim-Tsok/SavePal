@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import google from "./google.png";
 import Link from "next/link";
-import { supabase } from "@/lib/supabaseClient"; // Ensure your Supabase client is set up properly
+import { supabase } from "@/lib/supabaseClient"; 
 import { useRouter } from "next/navigation";
 
 const Joinpage = () => {
@@ -12,10 +12,8 @@ const Joinpage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // This ensures that when the authentication state changes (like after a user logs in), we can act on it
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
       if (session) {
-        // If the user is authenticated, redirect to the dashboard
         router.push("/dashboard");
       }
     });
@@ -31,7 +29,7 @@ const Joinpage = () => {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: "http://localhost:3000/dashboard", // Change this to your production URL
+          redirectTo: ["http://localhost:3000/dashboard", "http://save-pal.vercel.app/dashboard"]
         },
       });
       if (error) {
@@ -39,7 +37,7 @@ const Joinpage = () => {
       }
     } catch (error) {
       console.error("Error logging in:", error.message);
-      setLoading(false); // Stop loading if there's an error
+      setLoading(false); 
     }
   };
 
@@ -79,5 +77,4 @@ const Joinpage = () => {
     </div>
   );
 };
-
 export default Joinpage;
