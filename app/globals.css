@@ -14,14 +14,14 @@
   }
 }
 @font-face {
-  font-family: Rubik;
-  src: url(./fonts/Rubik-VariableFont_wght.ttf);
+  font-family: Radio_Canada;
+  src: url(./fonts/RadioCanada-VariableFont_wdth\,wght.ttf);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Radio_Canada', sans-serif;
 }
 
 @layer utilities {

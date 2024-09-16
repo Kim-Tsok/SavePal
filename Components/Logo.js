@@ -4,7 +4,7 @@ import logo from '../logo.png'
 const Logo = () => {
   return (
     <div>
-        <Image alt='Logo' src={logo} />
+        <Image alt='Logo' height={100}  src={logo} />
     </div>
   )
 }
